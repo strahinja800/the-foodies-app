@@ -3,7 +3,6 @@ import classes from './page.module.css'
 import ImageSlideshow from '@/components/images/images-slideshow'
 
 export default function Home() {
-  console.log('Home page rendered')
   return (
     <>
       <header className={classes.header}>
@@ -16,7 +15,7 @@ export default function Home() {
             <p>Taste & share food from all over the world.</p>
           </div>
           <div className={classes.cta}>
-            <Link href='/commmunity'>Join the community</Link>
+            <Link href='/community'>Join the community</Link>
             <Link href='/meals'>Explore the Meals</Link>
           </div>
         </div>
