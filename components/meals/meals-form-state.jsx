@@ -1,9 +1,13 @@
 'use client'
 
-import { useFormState } from 'react-dom'
+import { useFormStatus } from 'react-dom'
 
 export default function MealsFormStatusButton() {
-  const { pending } = useFormState()
+  const { pending } = useFormStatus()
 
-  return <button>{pending ? 'Sharing Meal...' : 'Share Meal'}</button>
+  return (
+    <button disabled={pending}>
+      {pending ? 'Sharing Meal...' : 'Share Meal'}
+    </button>
+  )
 }
