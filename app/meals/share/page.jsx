@@ -1,9 +1,14 @@
+'use client'
+
 import { handleShareMeal } from '@/lib/action'
 import classes from './page.module.css'
 import ImagePicker from '@/components/meals/image-picker'
 import MealsFormStatusButton from '@/components/meals/meals-form-state'
+import { useFormState } from 'react-dom'
 
 export default function ShareMealPage() {
+  const [state, formAction] = useFormState(handleShareMeal, { message: null })
+
   return (
     <>
       <header className={classes.header}>
@@ -15,7 +20,7 @@ export default function ShareMealPage() {
       <main className={classes.main}>
         <form
           className={classes.form}
-          action={handleShareMeal}
+          action={formAction}
         >
           <div className={classes.row}>
             <p>
@@ -69,6 +74,7 @@ export default function ShareMealPage() {
             name='image'
           />
           <p className={classes.actions}>
+            {state.message && <p>{state.message}</p>}
             <MealsFormStatusButton />
           </p>
         </form>
